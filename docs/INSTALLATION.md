@@ -24,7 +24,7 @@ gh auth setup-git
 At the prompt of a Claude Code terminal session:
 
 ```
-/plugin install cost-guard --marketplace adommeti/cost-guard
+/plugin install cost-guard --marketplace adommeti/CostGuard
 ```
 
 1. `Add marketplace?` names the source. Answer `y`.
@@ -36,11 +36,11 @@ At the prompt of a Claude Code terminal session:
 From a shell, the same install is:
 
 ```sh
-claude plugin install cost-guard --marketplace adommeti/cost-guard
+claude plugin install cost-guard --marketplace adommeti/CostGuard
 ```
 
 In the desktop app, where `/plugin` does not run: click + next to the prompt
-box, then Plugins, Add marketplace with `adommeti/cost-guard`, then Add plugin.
+box, then Plugins, Add marketplace with `adommeti/CostGuard`, then Add plugin.
 
 ## First run
 

@@ -99,7 +99,7 @@ This repository is private. You need read access to it on GitHub and a git
 credential for github.com already set up on your computer.
 
 ```
-/plugin install cost-guard --marketplace adommeti/cost-guard
+/plugin install cost-guard --marketplace adommeti/CostGuard
 ```
 
 Answer `y` to add the marketplace, then press Enter. Cost Guard needs no setup:

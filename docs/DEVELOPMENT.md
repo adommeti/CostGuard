@@ -11,8 +11,8 @@ the code. `CONTRIBUTING.md` covers the rules; this covers the mechanics.
   needed.
 
 ```sh
-git clone https://github.com/adommeti/cost-guard.git
-cd cost-guard
+git clone https://github.com/adommeti/CostGuard.git
+cd CostGuard
 npm ci
 ```
 
