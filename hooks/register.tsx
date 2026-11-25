@@ -486,16 +486,12 @@ async function finishTask($: EngineInterface, a: Active): Promise<void> {
     const g = await gateOf($);
     if (!g.warned.includes("compact")) {
       await update($, gate, () => ({ ...g, warned: [...g.warned, "compact"] }));
-      await update(
-        $,
-        tip,
-        (): Tip => ({
-          kind: "compact",
-          text: `About ${m(a.reread)} of that task (${Math.round((a.reread / actual) * 100)}%) went on re-reading ${Math.round(a.ctx / 1000)}k tokens of chat history. /compact, or a fresh chat for a new topic, would cut that.`,
-          turnId: a.turnId,
-          isInfo: true,
-        }),
-      );
+      await update($, tip, (): Tip => ({
+        kind: "compact",
+        text: `About ${m(a.reread)} of that task (${Math.round((a.reread / actual) * 100)}%) went on re-reading ${Math.round(a.ctx / 1000)}k tokens of chat history. /compact, or a fresh chat for a new topic, would cut that.`,
+        turnId: a.turnId,
+        isInfo: true,
+      }));
     }
   }
   if (a.isExplicit) {
@@ -1032,16 +1028,12 @@ export const register: Register = (on, options) => {
             (u.cache_creation_input_tokens * (rate.input * 1.25 - rate.cacheRead) * multOf(c)) /
             1_000_000;
           await update($, gate, () => ({ ...g, warned: [...g.warned, "cache"] }));
-          await update(
-            $,
-            tip,
-            (): Tip => ({
-              kind: "cache",
-              text: `The prompt cache had lapsed, so that request re-wrote about ${Math.round(u.cache_creation_input_tokens / 1000)}k tokens of history (about ${fmt(c)(extra)} extra). On a long chat, a pause longer than the cache lifetime costs this each time.`,
-              turnId: task.turnId,
-              isInfo: true,
-            }),
-          );
+          await update($, tip, (): Tip => ({
+            kind: "cache",
+            text: `The prompt cache had lapsed, so that request re-wrote about ${Math.round(u.cache_creation_input_tokens / 1000)}k tokens of history (about ${fmt(c)(extra)} extra). On a long chat, a pause longer than the cache lifetime costs this each time.`,
+            turnId: task.turnId,
+            isInfo: true,
+          }));
         }
       }
     }

@@ -6,12 +6,12 @@ Cost Guard runs inside Claude Code's hooks sandbox with the permissions of the
 person who installed it. It has no server, no account and no network access of
 its own.
 
-| Boundary                  | What crosses it                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
+| Boundary                 | What crosses it                                                                                     |
+| ------------------------ | --------------------------------------------------------------------------------------------------- |
 | Mod ↔ Claude Code engine | Every file, process, model and session call, through `$`                                            |
-| Mod → model provider      | The first 4,000 characters of a prompt, for sizing and rewrites, through the session's own provider |
-| Mod → local disk          | Settings, spend totals, history, the ledger, the exported dashboard                                 |
-| Mod → browser             | `/spend export` opens the local dashboard file                                                      |
+| Mod → model provider     | The first 4,000 characters of a prompt, for sizing and rewrites, through the session's own provider |
+| Mod → local disk         | Settings, spend totals, history, the ledger, the exported dashboard                                 |
+| Mod → browser            | `/spend export` opens the local dashboard file                                                      |
 
 ## 2. Least privilege
 
