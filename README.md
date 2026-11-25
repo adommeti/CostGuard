@@ -95,8 +95,7 @@ saves the same as a self-contained HTML page.
 
 ## Installation
 
-This repository is private. You need read access to it on GitHub and a git
-credential for github.com already set up on your computer.
+At the prompt of a Claude Code terminal session:
 
 ```
 /plugin install cost-guard --marketplace adommeti/CostGuard
@@ -104,8 +103,7 @@ credential for github.com already set up on your computer.
 
 Answer `y` to add the marketplace, then press Enter. Cost Guard needs no setup:
 it starts tracking with your next prompt. See
-[docs/INSTALLATION.md](docs/INSTALLATION.md) for credentials, updating and
-uninstalling.
+[docs/INSTALLATION.md](docs/INSTALLATION.md) for updating and uninstalling.
 
 ## Documentation
 

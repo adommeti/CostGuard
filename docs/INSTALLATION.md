@@ -6,18 +6,7 @@ no configuration.
 ## Requirements
 
 - Claude Code, a current version, in a terminal session.
-- Read access to this repository on GitHub. It is private: the owner must invite
-  you.
-- A git credential for github.com already set up on your computer. The install
-  never prompts for one.
-
-To set up a credential, either add an SSH key to your GitHub account, or install
-the GitHub CLI and run:
-
-```sh
-gh auth login
-gh auth setup-git
-```
+- Git, which Claude Code uses to fetch the repository.
 
 ## Install
 
@@ -89,8 +78,8 @@ before uninstalling if you want what was learned from past chats deleted.
 
 ## If the install fails
 
-| Message                                        | Cause                                             | Fix                                                                           |
-| ---------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `Marketplace file not found at …`              | No access to the repository, or no git credential | Check you can open the repository on github.com; set up a credential as above |
-| `Plugin "cost-guard" not found in marketplace` | An old copy of the marketplace                    | `/plugin marketplace update cost-guard`                                       |
-| The command is "not available"                 | You are in the desktop app's Code tab             | Use a terminal session, or the desktop steps above                            |
+| Message                                        | Cause                                 | Fix                                                                     |
+| ---------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------- |
+| `Marketplace file not found at …`              | The repository could not be fetched   | Check the name is `adommeti/CostGuard` and that github.com is reachable |
+| `Plugin "cost-guard" not found in marketplace` | An old copy of the marketplace        | `/plugin marketplace update cost-guard`                                 |
+| The command is "not available"                 | You are in the desktop app's Code tab | Use a terminal session, or the desktop steps above                      |
