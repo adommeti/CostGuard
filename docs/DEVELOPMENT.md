@@ -121,7 +121,8 @@ a value.
 1. Update the version in `.claude-plugin/plugin.json` and `package.json`.
 2. Add the changes to `RELEASE_NOTES.md`; revise the known limitations.
 3. Run `npm run check` and the manual checks in `TEST_STRATEGY.md` section 5.
-4. Merge to `main` and tag `v<version>`.
+4. Merge to `main`, then tag `v<version>` and push the tag. The release workflow
+   re-runs the checks and publishes the GitHub release.
 
 Users pick up the release with `claude plugin marketplace update cost-guard`
 then `claude plugin update cost-guard`.

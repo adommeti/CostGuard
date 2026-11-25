@@ -48,17 +48,19 @@ and every push to `main`:
 - **Check** — `npm ci`, the format check, then validation and the hook tests
   with a freshly installed Claude Code CLI.
 
-**This workflow has not yet run.** Two things are unverified until it has:
+The job runs on a GitHub-hosted runner. Its first run, on 2026-11-25, passed:
+`claude plugin validate` and `claude plugin test` both work there with no
+signed-in account, because neither calls a model. The CLI is installed fresh on
+each run and is not pinned, so a new Claude Code release can change the
+type-check result without any change here; if CI fails on an untouched file,
+check that first.
 
-- whether `claude plugin validate` and `claude plugin test` run on a hosted
-  runner with no signed-in account (neither calls a model, but that is
-  reasoning, not evidence);
-- whether the globally installed CLI version produces the same type-check result
-  as the version the mod was developed against.
-
-If either step fails for those reasons, fix the workflow, not the mod, and
-record what was learned here. Do not describe a change as CI-verified until this
-section no longer carries this notice.
+A second workflow, `.github/workflows/release.yml`, does not run on pull
+requests. It is triggered by a `v*` tag, re-runs the whole gate from a clean
+checkout, refuses a tag that does not match the version in
+`.claude-plugin/plugin.json` and `package.json`, and then publishes a GitHub
+release that points at `RELEASE_NOTES.md`. It has not yet run: no tag has been
+pushed.
 
 ## Live-session behaviour
 
