@@ -90,19 +90,28 @@ spend limits for that.
 ## 10. Logging
 
 Cost Guard writes no debug log of its own. It logs no keys, tokens or
-environment values. The only environment value it reads is the home directory,
-to locate its folder.
+environment values. It reads three environment values: `USERPROFILE` or `HOME`,
+to locate its folder, and `OS`, to choose how to open the exported dashboard.
 
 ## 11. Dependencies
 
 None at run time. The repository's only development dependency is Prettier,
 pinned to an exact version in `package.json`.
 
-## 12. Sharing the repository
+## 12. The public repository
 
-Before the repository was first committed, its files were scanned for known key
-and token formats and read for internal hostnames, employer names and other
-people's data. Repeat both before any change of visibility.
+The repository is public. Before it was made so, its files and full history were
+scanned for known key and token formats and read for internal hostnames,
+employer names and other people's data.
+
+- Pull requests from forks run CI on a GitHub-hosted runner with a read-only
+  token. No workflow uses a self-hosted runner, and none may be added while the
+  repository is public: a fork's pull request would run its code on that
+  machine.
+- The release workflow has write access to repository contents and runs only on
+  a `v*` tag, which only someone with push access can create.
+- Report a suspected vulnerability privately through the repository's "Report a
+  vulnerability" page under Security, not in a public issue.
 
 ## 13. Threat scenarios to test
 
