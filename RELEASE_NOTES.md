@@ -13,14 +13,20 @@ recommending it to others.
 
 These must be closed before a `1.0.0` tag.
 
-### Not verified in live sessions
+### Interactive surfaces not verified in live sessions
 
-**Impact: high. Affects confidence in everything the tests mock.**
+**Impact: high. Affects confidence in everything a person sees and presses.**
 
-The manual checks in `TEST_STRATEGY.md` section 5 have not been recorded as
-passed. The real small-model call, the pause question inside a running task, the
-band's layout with several rows, and the model switch from a band button are
-verified only against a mocked engine.
+On 2026-11-25 the mod was installed from this repository and run in real
+headless sessions (`claude -p`). That verified, against the real engine and real
+models: the install, the `/spend` command, silent tracking and the ledger row,
+the small-model sizing call (about six seconds for `/spend <task>`), the limit
+gate stopping a task when nobody can answer the question, and the subagent cap.
+
+A headless session draws nothing and cannot answer a question. Still unverified:
+the band and its layout, the pane and its buttons, the pause question's four
+answers, the feedback question, the Sonnet and effort tips, and "Edit it" on a
+rewrite. These are the manual checks in `TEST_STRATEGY.md` section 5.
 
 ---
 
