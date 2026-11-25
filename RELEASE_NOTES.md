@@ -22,14 +22,6 @@ passed. The real small-model call, the pause question inside a running task, the
 band's layout with several rows, and the model switch from a band button are
 verified only against a mocked engine.
 
-### CI not yet run
-
-**Impact: medium. Affects contributors, not users.**
-
-`.github/workflows/ci.yml` has not run. Whether `claude plugin validate` and
-`claude plugin test` work on a hosted runner without a signed-in account is
-unknown. See `CONTRIBUTING.md`, "What CI verifies".
-
 ---
 
 ## Known limitations

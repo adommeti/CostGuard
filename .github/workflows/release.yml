@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Check and publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      # A tag is a claim about what the manifest says. Refuse one that does not
+      # match, before anything is published under its name.
+      - name: Check the tag matches the manifest version
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          plugin="$(node -p "require('./.claude-plugin/plugin.json').version")"
+          package="$(node -p "require('./package.json').version")"
+          if [ "$tag" != "$plugin" ] || [ "$tag" != "$package" ]; then
+            echo "Tag v$tag does not match plugin.json ($plugin) and package.json ($package)." >&2
+            exit 1
+          fi
+      - run: npm ci
+      - run: npm install --global @anthropic-ai/claude-code
+      - run: npm run check
+      # The mod is installed from the repository itself, so a release carries
+      # no build artifact: it marks the commit and points at the notes.
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          flags=""
+          case "$GITHUB_REF_NAME" in v0.*|*-*) flags="--prerelease" ;; esac
+          gh release create "$GITHUB_REF_NAME" --verify-tag $flags \
+            --title "Cost Guard ${GITHUB_REF_NAME#v}" \
+            --notes "See [RELEASE_NOTES.md](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_REF_NAME}/RELEASE_NOTES.md) for known limitations and what changed."

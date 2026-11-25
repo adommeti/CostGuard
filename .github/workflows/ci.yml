@@ -22,9 +22,8 @@ jobs:
       - run: npm ci
       - run: npm run format:check
       # Validation and the tests run inside Claude Code's own plugin tooling,
-      # so the CLI is installed here. Neither command calls a model. Whether
-      # they run without a signed-in account on a hosted runner is not yet
-      # verified: see CONTRIBUTING.md, "What CI verifies".
+      # so the CLI is installed here. Neither command calls a model, and both
+      # run without a signed-in account.
       - run: npm install --global @anthropic-ai/claude-code
       - run: npm run validate
       - run: npm run test
