@@ -95,8 +95,11 @@ Run in a real Claude Code terminal session with the mod loaded from its folder.
    dark modes.
 9. After a reload, a task in progress is still tracked.
 
-As of 0.4.0 none of these has been recorded as passed. `RELEASE_NOTES.md` lists
-that as a known limitation.
+As of 0.4.0 none of these has been recorded as passed in an interactive session.
+A headless run on 2026-11-25 (`claude -p`, mod installed from the repository)
+confirmed the parts that need no screen: tracking and the ledger row, live
+sizing, the gate stopping a task at a one-cent limit, and the subagent cap.
+`RELEASE_NOTES.md` lists the rest as a release blocker.
 
 ## 6. Test data rules
 
