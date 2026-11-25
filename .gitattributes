@@ -1,0 +1,11 @@
+# Line endings are normalised to LF in the repository and checked out as LF on
+# every platform.
+#
+# Git for Windows installs with `core.autocrlf=true`, so without this file a
+# Windows checkout receives a CRLF copy of every source file and
+# `prettier --check`, whose `endOfLine` default is `lf`, fails on files that are
+# correct everywhere else. Cost Guard is developed on Windows, so this matters
+# on the first clone.
+* text=auto eol=lf
+
+*.png binary
