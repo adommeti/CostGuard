@@ -1,0 +1,13 @@
+{
+  "name": "cost-guard",
+  "description": "Cost Guard: spend control for Claude Code.",
+  "owner": {
+    "name": "Anantha Dommeti"
+  },
+  "plugins": [
+    {
+      "name": "cost-guard",
+      "source": "./"
+    }
+  ]
+}

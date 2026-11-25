@@ -1,0 +1,18 @@
+{
+  "name": "cost-guard",
+  "version": "0.4.0",
+  "description": "Tracks what every task costs, estimates it up front, pauses and asks before a task, daily or longer budget is passed, keeps subagents on Sonnet or Haiku, and shows a themed band and dashboard. All figures are local estimates.",
+  "license": "MIT",
+  "author": {
+    "name": "Anantha Dommeti"
+  },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "capSubagents": {
+      "type": "boolean",
+      "title": "Keep subagents on Sonnet or Haiku",
+      "description": "On: a subagent that would run on Opus or Fable runs on Sonnet instead. Off: subagents use whatever model they ask for.",
+      "default": true
+    }
+  }
+}
