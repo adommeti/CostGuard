@@ -113,6 +113,13 @@ version a fix. A change to the shape of a session-state value bumps that atom's
 subject (`feat/weekly-budget-tests`, `fix/pause-question-timeout`,
 `docs/user-guide`) and lands through a pull request once CI is green.
 
+This is enforced, for the owner too. `main` is a protected branch: a change
+reaches it only through a pull request whose **Check** job has passed on a
+branch that is up to date with `main`, and it cannot be force-pushed or deleted.
+Pull requests are merged with a merge commit; squash and rebase merges are
+turned off. Dependabot opens weekly pull requests for the pinned actions and for
+Prettier, and they pass through the same gate.
+
 Commit subjects follow conventional-commit style (`feat:`, `fix:`, `refactor:`,
 `perf:`, `test:`, `docs:`, `chore:`, `style:`), under 72 characters, describing
 why the change was made rather than restating what changed. An optional scope
